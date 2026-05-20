@@ -1,0 +1,36 @@
+.leader-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 89%;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 100px;
+    background-color: var(--bg1);
+    padding: 10px;
+
+    border: 1px var(--text-h) solid;
+}
+
+.leader {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-h);
+
+}
+
+.leader-name {
+    text-align: start;
+    width: 34%;
+}
+
+.leader-score {
+    width: 32%;
+}
+
+.score-date {
+    text-align: end;
+    width: 33%;
+}

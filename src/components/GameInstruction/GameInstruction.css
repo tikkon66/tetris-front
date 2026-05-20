@@ -1,0 +1,30 @@
+.instruction-list {
+    background-color: var(--social-bg);
+    
+    padding: 20px;
+    color: var(--text-h);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.instruction-wrapper {
+    display: flex;
+    gap: 10px;
+    text-align: start;
+    align-items: center;
+
+    & > img {
+        height: 40px;
+        width: 40px;
+    }
+
+    & > div {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+}

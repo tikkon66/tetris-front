@@ -1,0 +1,12 @@
+
+.name-button {
+    background-color: var(--buttonColor);
+    padding: 10px;
+    width: 200px;
+    outline: 1px solid #333;
+    transition: var(--transition);
+    cursor: pointer;
+
+
+
+}
