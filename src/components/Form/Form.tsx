@@ -7,8 +7,6 @@ export default function Form({ closeModal }: { closeModal: () => void }) {
     const [password, setPassword] = useState("");
     const [nickname, setNickname] = useState("");
 
-    const [score, setScore] = useState(0);
-
     async function register() {
         try {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/register`, {

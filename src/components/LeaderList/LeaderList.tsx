@@ -17,7 +17,7 @@ function LeaderList({ isList }: { isList: boolean }) {
         console.log("d", data);
     }
     useEffect(() => {
-        getLeaderboard().then((e) => {
+        getLeaderboard().then(() => {
             console.log("score:", leaders);
         });
     }, []);

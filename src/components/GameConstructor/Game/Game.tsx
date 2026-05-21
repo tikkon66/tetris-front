@@ -3,6 +3,7 @@ import Button from "../../shared/Button/Button";
 import { Link } from "react-router-dom";
 import '../GameConstructor.css'
 import GameInfo from "../GameInfo/GameInfo";
+import music from "../../../assets/Melodiya_iz_tetrisa_-_tetris_(SkySound.cc).mp3";
 
 type Cell = string | null;
 
@@ -87,6 +88,40 @@ export default function Tetris({
     onGameOver,
 }: TetrisProps) {
 
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+    const [musicOn, setMusicOn] = useState(true);
+    useEffect(() => {
+        const audio = new Audio(music);
+
+        audio.loop = true;
+        audio.volume = 0.5;
+
+        audioRef.current = audio;
+
+        if (musicOn) {
+            audio.play().catch(() => {
+                console.log("Автовоспроизведение заблокировано");
+            });
+        }
+
+        return () => {
+            audio.pause();
+            audio.currentTime = 0;
+        };
+    }, []);
+
+    function toggleMusic() {
+        if (!audioRef.current) return;
+
+        if (musicOn) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play();
+        }
+
+        setMusicOn(!musicOn);
+    }
+
     async function saveScore() {
         const token = localStorage.getItem("token");
 
@@ -131,12 +166,12 @@ export default function Tetris({
         return size;
     }
 
-    const { width, height } = useWindowSize();
+    const { width } = useWindowSize();
     const theme = localStorage.getItem("theme")
 
     const BLOCK = width > 1000 ? 40 : 23;
     const miniBlock = width > 1000 ? 40 : 15;
-    const defaultColor = theme == "light" ? "#dadada": "#1a1a1a";
+    const defaultColor = theme == "light" ? "#dadada" : "#1a1a1a";
 
     interface MenuProps {
         isMenu: boolean;
@@ -441,7 +476,7 @@ export default function Tetris({
             {/* UI */}
             <div className="info">
 
-                <GameInfo openMenu={() => { setIsMenu(true); setPaused(true) }} />
+                <GameInfo openMenu={() => { setIsMenu(true); setPaused(true) }} stopMusic={toggleMusic}/>
 
                 <InfoMenu isMenu={isMenu} closeMenu={() => { setIsMenu(false); setPaused(false) }} saveScore={saveScore} />
 
