@@ -23,14 +23,14 @@
 
 .leader-name {
     text-align: start;
-    width: 34%;
+    width: 30%;
 }
 
 .leader-score {
-    width: 32%;
+    width: 30%;
 }
 
 .score-date {
     text-align: end;
-    width: 33%;
+    width: 30%;
 }

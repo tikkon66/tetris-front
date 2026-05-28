@@ -27,6 +27,8 @@ function LeaderList({ isList }: { isList: boolean }) {
         <>
             <div className="leader-list" style={{ display: !isList ? 'none' : 'flex' }} >
                 <div className="leader">
+                    <div className="leader-name">Count</div>
+                    <div className="vertical"></div>
                     <div className="leader-name">Nick</div>
                     <div className="vertical"></div>
                     <div className="leader-score">Score</div>
@@ -37,6 +39,8 @@ function LeaderList({ isList }: { isList: boolean }) {
                 {leaders.map((item, index) => (
                     <div key={index}>
                         <div className="leader">
+                            <div className="leader-name">{index+1}</div>
+                            <div className="vertical"></div>
                             <div className="leader-name">{item?.nickname}</div>
                             <div className="vertical"></div>
                             <div className="leader-score">{item?.score}</div>
